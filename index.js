@@ -1,5 +1,6 @@
 const puppeteer = require("puppeteer");
 const fs = require("fs");
+const pageLink = "https://stockx.com/fr-fr/air-jordan-4-retro-lightning-2021";
 
 (async () => {
   const browser = await puppeteer.launch({ headless: false });
@@ -10,7 +11,7 @@ const fs = require("fs");
     "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.39 Safari/537.36";
   await page.setUserAgent(userAgent);
 
-  await page.goto("https://stockx.com/fr-fr/air-jordan-4-retro-lightning-2021"); // lien sneakers
+  await page.goto(pageLink); // lien sneakers
   await page.click("#menu-button-pdp-size-selector"); // active la data pour les tailles
 
   const sizePrice = await page.evaluate(() => {
